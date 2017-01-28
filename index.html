@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Landing Page - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+	
+	
+	<!-- jQuery -->
+    <script src="js/jquery.js"></script>
+	<script src="js/socket.io.js"></script>
+	<script>
+	
+	
+	replaceAllInString = function (target, search, replacement) {
+    return target.replace(new RegExp(search, 'g'), replacement);
+};
+	
+	
+	var socket = io('http://foodtrash.stage.fishrungames.com');
+	
+	socket.on('connect', function(){
+		//socket.emit('trashBin');
+	
+	});
+	socket.on('onTrashBin', function(data){
+		console.log('onTrashBin');
+		console.log(data);
+	});
+	socket.on('newsAdded', function(data){
+		console.log('newsAdded');
+		console.log(data);
+		news.push(data);
+		
+		UpdateNews();
+		
+	});
+	
+	socket.on('onNews', function(data){
+		console.log('onNews');
+		console.log(data);
+		news = data.news;
+		
+		UpdateNews();
+		
+	});
+	
+	socket.on('disconnect', function(){});
+	
+	
+	var newsItemTemplate = null;
+	
+	$.get("templates/news-item.html", function (data) {
+		newsItemTemplate = data;
+		socket.emit('news', {});
+	});
+	
+	var news = [];
+	
+	function UpdateNews()
+	{
+		//var len = news.length > 5 ? 5 : news.length;
+		
+		var len = news.length;
+		for (var i = 0; i < len; i++)		
+		{
+			
+			var divHtml = newsItemTemplate;
+            divHtml = replaceAllInString(divHtml, "%USER_PHOTO_URL%", news[i].user.avatar);
+			divHtml = replaceAllInString(divHtml, "%USER_FULL_NAME%", news[i].user.first_name + " " + news[i].user.last_name);
+			
+			divHtml = replaceAllInString(divHtml, "%DATE_TIME%", news[i].date);
+			
+			divHtml = replaceAllInString(divHtml, "%TRASH_NAME%", news[i].trash.id);
+			
+			divHtml = replaceAllInString(divHtml, "%TRASH_BIN_NAME%", news[i].trashBin.name);
+			
+			var div = $(divHtml).appendTo($('#news'));
+		}
+	}
+	
+	</script>
+	
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="#">Bazura</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#about">Home</a>
+                    </li>
+                    <li>
+                        <a href="#services">Map</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <!-- Header -->
+    <a name="about"></a>
+    <div class="intro-header">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>Bazura</h1>
+                        <h3>Collect trash to collect rewards</h3>
+                        <hr class="intro-divider">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.intro-header -->
+
+    <!-- Page Content -->
+
+	<a  name="services"></a>
+    <div class="content-section-a">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Collect trash to collect rewards</h2>
+                    <p class="lead">A special thanks to <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a> for providing the photographs that you see in this template. Visit their website to become a member.</p>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+
+    <!-- Header -->
+    <a name="about"></a>
+        
+<script>
+
+</script>
+		
+		
+<iframe 
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1984.7042981614475!2d24.93634969200579!3d60.16907400896206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46920bcca16543b7%3A0x61bca3560c29cafe!2sSimonkatu+8%2C+00101+Helsinki!5e0!3m2!1sfi!2sfi!4v1485611260050" 
+width="100%" height="500" frameborder="0" style="border:0" allowfullscreen>
+</iframe>
+						
+		
+		
+		<div class="container" id="news">
+		<div>
+                     
+                      
+       
+     
+    </div>
+    <!-- /.banner -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#services">Services</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#contact">Contact</a>
+                        </li>
+                    </ul>
+					<div>Icons made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+                    <p class="copyright text-muted small">Copyright &copy; Your Company 2014. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
