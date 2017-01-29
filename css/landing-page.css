@@ -25,6 +25,10 @@ small {
  display: block;
 }
 
+.table tbody > tr > td.vert-align {
+    font-size: 18px;
+}
+
 .table tbody>tr>td.vert-align{
     vertical-align: middle;
 }
@@ -53,6 +57,23 @@ small {
 
 .margin40 {
 	margin-bottom: 40px;
+}
+
+.map {
+	width:100%;
+	height:500px;	
+}
+
+
+.map-wrap {
+	position:relative; 
+}
+	
+.overlay {
+	width:100%;
+	min-height:500px; 
+	position:absolute; 
+	top:0;
 }
 
 .section-heading {
