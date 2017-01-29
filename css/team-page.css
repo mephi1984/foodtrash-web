@@ -1,0 +1,53 @@
+
+ol.custom-list, ul.custom-list {
+    list-style-type: circle;
+    padding-left: 20px;
+}
+
+hr.in-section-hr {
+    margin-top: 3em;
+    
+    margin-left: 5em;
+    margin-right: 5em;
+}
+
+img.aritcle-pic {
+    width: 100%;
+    height: 100%;
+    max-width: 180px;
+    max-height: 180px;
+    border-radius: 15px;
+    
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image {
+    display: inline-block;
+    position: relative;
+}
+
+.image img {
+    display: block;
+    width: 100%;
+}
+
+.image.fit {
+    display: block;
+    width: 100%;
+}
+
+img.portrait-pic-small {
+    width: 180px;
+    height: 180px;
+    border-radius: 15px;
+    margin: auto;
+}
+
+
+
+div.extra-margin-top {
+	margin-top: 50px;
+}
