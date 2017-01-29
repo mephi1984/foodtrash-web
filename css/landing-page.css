@@ -25,6 +25,10 @@ small {
  display: block;
 }
 
+.navbar-brand {
+    padding-top: 2px;
+}
+
 .table tbody > tr > td.vert-align {
     font-size: 18px;
 }
