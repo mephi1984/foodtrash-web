@@ -25,6 +25,10 @@ small {
  display: block;
 }
 
+.table tbody>tr>td.vert-align{
+    vertical-align: middle;
+}
+
 .reply_content {
  font-size: 18px;
 }
@@ -32,6 +36,11 @@ small {
 .reply_img {
 	width: 80px;
 	height: 80px;
+}
+
+.stat-img {
+	width: 60px;
+	height: 60px;
 }
 
 .panel-heading {
