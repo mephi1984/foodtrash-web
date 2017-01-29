@@ -21,6 +21,23 @@ h6 {
     font-weight: 700;
 }
 
+small {
+ display: block;
+}
+
+.reply_content {
+ font-size: 18px;
+}
+
+.reply_img {
+	width: 80px;
+	height: 80px;
+}
+
+.panel-heading {
+ margin-bottom: 20px;
+}
+
 .icons {
 	text-align: center;
 } 
