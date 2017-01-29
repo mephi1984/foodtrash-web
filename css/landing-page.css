@@ -21,6 +21,18 @@ h6 {
     font-weight: 700;
 }
 
+.icons {
+	text-align: center;
+} 
+
+.margin40 {
+	margin-bottom: 40px;
+}
+
+.section-heading {
+	text-align: center;
+} 
+
 .section-heading {
 	text-align: center;
 } 
