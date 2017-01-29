@@ -48,7 +48,7 @@ small {
 
 .stat-img {
 	width: 60px;
-	height: 60px;
+	height: auto;
 }
 
 .panel-heading {
@@ -75,7 +75,7 @@ small {
 	
 .overlay {
 	width:100%;
-	min-height:500px; 
+	height:500px; 
 	position:absolute; 
 	top:0;
 }
