@@ -69,22 +69,58 @@
 		
 	});
 	
+	socket.on('onLeaderboard', function(data){
+		console.log('onLeaderboard');
+		console.log(data);
+		leaderboard = data.leaderboard;
+		
+		UpdateLeaderboard();
+		
+	});
+	
+	//UpdateLeaderboard
+	
 	socket.on('disconnect', function(){});
 	
 	
 	var newsItemTemplate = null;
+	var leaderboardItemTemplate = null;
+	var leaderboardHeader = null;
 	
 	$.get("templates/news-item.html", function (data) {
 		newsItemTemplate = data;
-		socket.emit('news', {});
+		TryStartLoadNews();
 	});
 	
+	$.get("templates/leaderboard-item.html", function (data) {
+		leaderboardItemTemplate = data;
+		TryStartLoadNews();
+	});
+	
+	$.get("templates/leaderboard-header.html", function (data) {
+		leaderboardHeader = data;
+		TryStartLoadNews();
+	});
+	
+	function TryStartLoadNews()
+	{
+		if ((newsItemTemplate == null) || (leaderboardItemTemplate == null) || (leaderboardHeader == null))
+		{
+			return;
+		}
+		socket.emit('news', {});
+		socket.emit('leaderboard', {});
+	}
+	
 	var news = [];
+	
+	var leaderboard = [];
 	
 	function UpdateNews()
 	{
 	
 	$('#news').empty();
+	
 		console.log('UpdateNews called');
 		var len = news.length > 5 ? 5 : news.length;
 		
@@ -103,6 +139,39 @@
 			divHtml = replaceAllInString(divHtml, "%TRASH_BIN_NAME%", news[i].trashBin.name);
 			
 			$(divHtml).appendTo($('#news'));
+		}
+	}
+	
+	
+	function UpdateLeaderboard()
+	{
+	
+	
+		console.log('UpdateLeaderboard called');
+		
+		
+		$('#leaderboard').empty();
+	
+		$(leaderboardHeader).appendTo($('#leaderboard'));
+		
+	
+		for (var i = 0; i < leaderboard.length; i++)		
+		{
+			
+			var divHtml = leaderboardItemTemplate;
+			
+			
+            divHtml = replaceAllInString(divHtml, "%USER_PHOTO_URL%", leaderboard[i].user.avatar);
+			
+			divHtml = replaceAllInString(divHtml, "%NUMBER%", i+1);
+			
+			divHtml = replaceAllInString(divHtml, "%USER_FIRST_NAME%", leaderboard[i].user.first_name);
+			divHtml = replaceAllInString(divHtml, "%USER_LAST_NAME%", leaderboard[i].user.last_name);
+			
+			divHtml = replaceAllInString(divHtml, "%USER_TRASH_COUNT%", leaderboard[i].trashCount);
+			
+		
+			$(divHtml).appendTo($('#leaderboard'));
 		}
 	}
 	
@@ -240,40 +309,8 @@ width="100%" height="500" frameborder="0" style="border:0" allowfullscreen>
 			<div class="panel-heading">Leader Board</div>
 			<table class="table">
 			
-			<tbody>
-			<tr>
-			<td>
-			</td>
-			<td>
-			</td>
-			<td class="vert-align">
-			First Name
-			</td>
-			<td class="vert-align">
-			Surname
-			</td>
-			<td class="vert-align">
-			Trash collected
-			</td>
-			</tr>
-
-			<tr>
-			<td class="vert-align">
-			1.
-			</td>
-			<td>
-			<img src="img/vlad.jpg" class="stat-img img-circle">
-			</td>
-			<td class="vert-align">
-			Vladislav
-			</td>
-			<td class="vert-align">
-			Khorev
-			</td>
-			<td class="vert-align">
-			3
-			</td>
-			</tr>	
+			<tbody id="leaderboard">
+						
 	</tbody>
 	</table>
 </div>
