@@ -1,0 +1,257 @@
+@font-face {
+    font-family: 'Franklin Gothic Heavy';
+    src:
+        local('Franklin Gothic Heavy'),
+        url('../fonts/franhv.ttf');
+}
+
+html,body{
+    font-family: "Franklin Gothic Heavy", "Franklin Gothic Medium",  "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+    background: #00daf3;
+    color: white;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.main-area-desktop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.main-area-mobile {
+    display: none;
+}
+
+
+.left-side {
+
+    float: left;
+    width:35%;
+
+    padding-left: 7%;
+    padding-top: 7%;
+    
+}
+
+.right-side {
+    padding: 5%;
+    float: left;
+    width: 65%;
+    text-align: center;
+
+}
+
+.phone-area-inner {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto; 
+    width:100%;
+
+    background-image: url("../images/landing/pic_bkg_new.png");
+    background-repeat: no-repeat;
+    background-size:100%;
+}
+
+img.image-phone-size{
+    width:100%;
+    height:100%;
+}
+
+.phone-screen-area {
+    position:absolute;
+    top:23.0%;
+    left:38.4%;
+    background: black;
+    height: 62.2%;
+    width: 46.8%;
+}
+
+
+img.logo {
+    margin-left: auto;
+    margin-right: auto; 
+    width:30%;
+    height:auto;
+
+}
+
+
+.text-area {
+    margin-top: 20px;
+    text-align: center;
+    background: #00daf3;    
+    font-size: 2.2em;
+}
+
+.text-area span.span-red {
+    font-size: 120%;
+    font-weight: bold;
+    color: #ef4369;
+}
+
+.text-area .coming-soon-text {
+    font-size: 1.8em;
+    line-height: 1.1em;
+}
+
+.text-area .coming-soon-text span.span-red {
+    font-size: 100%;
+}
+
+
+.download-area {
+    background: #00daf3;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 5%;
+    width: 70%;
+}
+
+.download-area img {
+    padding: 10px;
+    width:40%;
+    height: auto;
+}
+
+.footer-text-desktop {
+    position: fixed;
+    text-align: center;
+
+    width: 100%;
+
+    bottom:0;
+    font-size: 1.3em;
+}
+
+.social-area-desktop {
+    position: fixed;
+    text-align: left;    
+    width: 100%;
+
+    height:40px;
+    bottom: 0;
+    right: 0;
+}
+
+.social-area-inner {
+    display: inline-block;
+    position:absolute;
+    height:40px;
+    margin-left: auto;
+    margin-right: 0;
+    right: 0;
+}
+
+
+.social-area-inner img {
+
+    height: 100%;
+
+    padding:5px;
+}
+
+@media screen and (max-width : 768px) {
+
+    img.logo {
+        width:60%;
+    }
+
+    .main-area-desktop {
+        display: none;
+    }
+
+    .main-area-mobile {
+        display: block;
+        text-align: center;
+    }
+
+    .main-area-mobile-inner {
+        display: block;
+        text-align: center;
+        padding: 7%;
+    }
+
+
+    .m-phone-area-inner {
+        text-align: left;
+        display: block;
+
+
+        position: relative;
+        margin-top: 12%;
+        margin-left: auto;
+        margin-right: auto; 
+        margin-bottom: 12%;
+        width:100%;
+
+
+        background-image: url("../images/landing/iphone_small_2.png");
+        background-repeat: no-repeat;
+        background-size:100%;
+    }
+
+
+    .phone-screen-area {
+        position: absolute;
+        top: 12.2%;
+        left: 7.0%;
+        background: black;
+        height: 76.0%;
+        width: 85.5%;
+    }
+
+
+    .download-area {
+        margin-top: 12%;
+        width: 100%;
+    }
+
+    .download-area img {
+        padding: 6px;
+        width:46%;
+    }
+
+
+    .footer-area-mobile {
+    }
+
+    .footer-text-mobile {
+        position: absolute;
+        line-height: 42px;
+        width:100%;
+        text-align: left;
+        padding-left:20px;
+    }
+
+    .footer-text-mobile p {
+        margin: 0px;
+    }
+
+
+
+    .social-area-mobile {
+        position: relative;
+    }
+
+    .social-area-mobile-inner {
+        display: inline-block;
+        position:absolute;
+        height:42px;
+        margin-left: auto;
+        margin-right: 0;
+        right: 0;
+    }
+
+
+    .social-area-mobile-inner img {
+        height: 100%;
+        padding:3px;
+    }
+
+}
+

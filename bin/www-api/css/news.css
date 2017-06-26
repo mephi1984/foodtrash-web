@@ -1,0 +1,116 @@
+
+
+.trophy-div {
+    margin: auto;
+    width: 160px;
+    padding: 4px;
+    text-align: center;
+    margin-top: 4px;
+    margin-bottom: 6px;
+}
+.trophy-image {
+    vertical-align: middle;
+}
+
+.trophy-image {
+    width: 160px;
+    vertical-align: middle;
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 18px;
+}
+
+
+
+.best-big-btn{
+    width: 100%;
+    border-radius: 0;
+    height: 50px;
+    margin: 0;
+    background-color: #00daf3;
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.reposted{
+    width: 300px;
+    margin: 0 auto;
+}
+
+.best-block-news-comment-header {
+    text-align: left;
+    margin: 0px 20px 10px 20px;
+    border-bottom: 1px solid #aba9a9;
+}
+
+.best-block-news-comment-footer{
+    text-align: left;
+    border-top: 1px solid #aba9a9;
+    margin: 20px;
+    padding-top: 10px;
+}
+
+.best-block .reply_image {
+    display: block;
+    float: left;
+}
+
+.best-block .reply_img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    vertical-align: top;
+}
+
+.best-block .reply_content {
+    margin-left: 52px;
+    word-wrap: break-word;
+    min-height: 40px;
+}
+
+
+
+
+[class^="sprite-"],
+[class*=" sprite-"] {
+    display: inline-block;
+    *margin-right: .3em;
+    line-height: 18px;
+    vertical-align: middle;
+    background-image: url(../images/spritesheet.png);
+    background-repeat: no-repeat;
+}
+[class^="sprite-"]:last-child,
+[class*=" sprite-"]:last-child {
+    *margin-left: 0;
+}
+
+
+.sprite-home_news_best_icon {
+    width: 10px;
+    height: 20px;
+    background-position: -5px -5px;
+}
+
+.sprite-home_news_comment_icon {
+    width: 20px;
+    height: 20px;
+    background-position: -25px -5px;
+    
+    /* Manual fix by myself*/
+    margin-bottom: 3px;
+}
+
+
+
+.modal-body textarea{
+    border: 0;
+    width: 100%;
+    height: 240px;
+    resize: none;
+}
+
+body.modal-open {
+    overflow: visible;
+}

@@ -1,0 +1,28 @@
+{
+  "name": "api_deamon",
+  "version": "0.0.0",
+  "description": "Simple API Daemon written in Node.js",
+  "main": "lib/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodejs bin/app.js"
+  },
+  "author": "Vladislav Khorev",
+  "license": "MIT",
+  "dependencies": {
+    "MD5": "^1.3.0",
+    "body-parser": "^1.15.2",
+    "daemon": "~1.1.0",
+    "express": "^4.14.0",
+    "express-fileupload": "0.0.5",
+    "fb": "^1.1.1",
+    "file-type": "^3.8.0",
+    "image-size": "^0.5.0",
+    "jsonschema": "^1.1.0",
+    "mongodb": "^2.1.18",
+    "read-chunk": "^2.0.0",
+    "socket.io": "^1.4.8",
+    "socket.io-redis": "^1.1.1",
+    "apn" : "^2.1.2"
+  }
+}
